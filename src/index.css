@@ -82,6 +82,12 @@ button:focus-visible {
   width: 400px;
   font-size: 1.1rem;
 }
+@media (max-width: 400px) {
+  .home {
+    width: 300px;
+    font-size: 1rem;
+  }
+}
 
 .homeInput {
   display: flex;
