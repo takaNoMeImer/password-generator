@@ -1,4 +1,5 @@
 @import 'bulma/css/bulma.css';
+
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -33,8 +34,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background: rgb(2, 0, 36);
-  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(108, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1050%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(46%2c 118%2c 192%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c481.866C102.777%2c485.939%2c209.864%2c515.601%2c302.095%2c470.069C398.03%2c422.708%2c450.404%2c322.326%2c507.038%2c231.556C571.378%2c128.436%2c679.507%2c24.813%2c654.062%2c-94.04C628.413%2c-213.843%2c460.067%2c-236.863%2c385.879%2c-334.366C303.75%2c-442.305%2c318.433%2c-618.463%2c202.046%2c-688.106C84.272%2c-758.58%2c-71.572%2c-730.401%2c-201.356%2c-685.755C-327.985%2c-642.194%2c-447.233%2c-560.547%2c-511.026%2c-442.806C-570.501%2c-333.034%2c-539.968%2c-200.979%2c-531.499%2c-76.418C-524.652%2c24.279%2c-509.157%2c121.573%2c-466.435%2c213.014C-424.011%2c303.819%2c-373.924%2c396.667%2c-287.089%2c446.719C-201.834%2c495.86%2c-98.327%2c477.969%2c0%2c481.866' fill='%232867a7'%3e%3c/path%3e%3cpath d='M1440 975.146C1515.882 956.36 1584.366 927.8050000000001 1655.402 895.172 1738.9189999999999 856.8050000000001 1846.923 846.38 1893.179 766.96 1939.657 687.159 1914.166 584.174 1888.142 495.567 1864.462 414.94 1811.9270000000001 348.66700000000003 1752.792 288.964 1696.845 232.47899999999998 1633.713 182.426 1557.066 161.31 1481.166 140.39999999999998 1401.562 149.656 1325.883 171.353 1249.834 193.156 1188.715 241.038 1123.377 285.645 1035.07 345.933 906.665 376.557 875.492 478.836 844.751 579.699 928.442 677.751 975.0419999999999 772.3389999999999 1020.293 864.188 1049.238 981.066 1143.09 1022.002 1236.827 1062.8890000000001 1340.731 999.721 1440 975.146' fill='%233d86d0'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1050'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
 }
 
 h1 {
@@ -98,6 +98,7 @@ button:focus-visible {
   align-items: center;
   color: white;
 }
+
 .homeBodyInfo p:nth-child(2) {
   font-size: 1.3rem;
 }
@@ -109,11 +110,12 @@ button:focus-visible {
 .homeBodyButton {
   width: 100%;
 }
+
 .homeBodyButton button {
   display: flex;
   align-items: center;
 }
 
-.homeBodyCheck > *{
+.homeBodyCheck>* {
   display: block;
 }

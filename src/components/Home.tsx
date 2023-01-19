@@ -1,58 +1,64 @@
-import { useEffect, useState } from 'react';
-import styles from '../styles/Home.module.css';
+import React, { useEffect, useState } from 'react';
 import { FiCopy, GrFormNextLink } from 'react-icons/all';
-import { generator } from 'ts-password-generator';
+import Message from './Message';
+import { UseApp } from '../hooks/useApp';
 
 const Home = () => {
 
-    const [password, setPassword] = useState<string>('none');
-    const [longitud, setLongitud] = useState<number>(0);
+    const {password, longitud, setPassword, setLongitud, haveNumber, haveSymbol, haveUppercase, setHaveNumbers, setHaveUppercase, setHaveSymbol, generar } = UseApp();
+    const [active, setActive] = useState<boolean>(false);
 
     useEffect(() => {
         setPassword("Generar");
-        setLongitud(0);
     }, [])
 
-    const generar = () => {
-        setPassword(generator({haveNumbers: true, haveSymbols: true}));
-    }
 
     return (
         <>
+            {
+                active == true &&
+                <Message/>
+            }
             <div className='home'>
-                <p style={{textAlign: 'center'}} className='has-text-white is-size-4 mb-4'>Password Generator</p>
+                <p style={{ textAlign: 'center' }} className='has-text-white is-size-4 mb-4'>Password Generator</p>
 
                 <div className="homeInput has-background-dark p-3 mb-3">
                     <p>{password}</p>
-                    <FiCopy color='white' />
+                    <FiCopy cursor={'pointer'} className='copy' color='white' onClick={() => {
+                        navigator.clipboard.writeText(password),
+                        setActive(true),
+                            setTimeout(() => {
+                                setActive(false)
+                            }, 2000);
+                    }} />
                 </div>
 
                 <div className="homeBody has-background-dark p-3">
                     <div className="homeBodyInfo">
                         <p>Longitud</p>
-                        <p>{password.length}</p>
+                        <p>{longitud}</p>
                     </div>
                     <div className="homeBodyRange mb-3">
-                        <input type="range" name="" id="" />
+                        <input onChange={(e) => setLongitud(parseInt(e.target.value))} type="range" name="" id="" min={0} max={20} defaultValue={12} step={1} />
                     </div>
                     <div className="homeBodyCheck mb-3">
                         <label className="checkbox mb-2 has-text-white">
-                            <input className='mr-2' type="checkbox" />
-                                Incluir Numeros
+                            <input onChange={() => setHaveNumbers(!haveNumber)} className='mr-2' type="checkbox" />
+                            Incluir Numeros
                         </label>
 
                         <label className="checkbox mb-2 has-text-white">
-                            <input className='mr-2' type="checkbox" />
-                                Incluir Mayusculas
+                            <input onChange={() => setHaveUppercase(!haveUppercase)} className='mr-2' type="checkbox" />
+                            Incluir Mayusculas
                         </label>
 
                         <label className="checkbox mb-2 has-text-white">
-                            <input className='mr-2' type="checkbox" />
-                                Incluir Simbolos
+                            <input onChange={() => setHaveSymbol(!haveSymbol)} className='mr-2' type="checkbox" />
+                            Incluir Simbolos
                         </label>
                     </div>
                     <div className="homeBodyButton">
-                    <button onClick={generar} className="button has-text-black is-success is-fullwidth">Generar <GrFormNextLink color='white'/></button>
+                        <button onClick={generar} className="button has-text-black is-success is-fullwidth">Generar <GrFormNextLink color='white' /></button>
                     </div>
                 </div>
             </div>
